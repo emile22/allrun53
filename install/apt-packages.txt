@@ -1,0 +1,9 @@
+build-essential
+libnetconf2-2
+libssh-dev
+libyang2-dev
+libyang2-tools
+netopeer2
+pkg-config
+sysrepo
+sysrepo-plugind

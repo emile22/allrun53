@@ -1,0 +1,26 @@
+What got done — 1. Event simulator evaluation
+
+Simulator evaluation results
+Event execution and sequencing results
+Observed YANG state
+Limitations, fixes or missing capabilities identified
+
+What got done — 2. GREEN use-case events
+
+Use cases and event sequences reviewed
+Triggers, state transitions and measurements checked
+Energy-related actions checked
+Event-to-YANG mapping results
+
+3. What we learned / feedback to GREEN WG
+Events that are clear and executable
+Missing or ambiguous information
+Measurements or state transitions that need clarification
+Feedback and proposed updates for the GREEN WG drafts
+
+
+
+
+
+
+

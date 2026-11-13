@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "gaps": [
+    {
+      "id": "UC2.3/LIFECYCLE_SOURCE_DATA",
+      "uc": "UC 2.3",
+      "events": ["U3-0"],
+      "source": "draft-ietf-green-use-cases-02, UC 2.3",
+      "missing": "Authoritative asset age, embedded lifecycle impacts, and vendor lifecycle records.",
+      "expected_behavior": "Correlate lifecycle facts from an authenticated asset or vendor source.",
+      "fallback": "Keep asset age UNKNOWN and lifecycle evidence unavailable in scenario metadata; emit no fabricated YANG leaf.",
+      "evidence": "The use case describes lifecycle/vendor information but defines no device-side data model or source contract.",
+      "todo": "Add a source adapter only after an authoritative input format and provenance rules are agreed.",
+      "validation_criterion": "UC 2.3 runs and reports missing lifecycle evidence without adding unsupported operational data."
+    },
+    {
+      "id": "UC2.3/CARBON_ATTRIBUTION",
+      "uc": "UC 2.3",
+      "events": ["U3-2", "U3-4"],
+      "source": "draft-ietf-green-use-cases-02, UC 2.3",
+      "missing": "Location-specific energy mix and carbon-intensity factors aligned to the reporting interval.",
+      "expected_behavior": "Attribute emissions only when source, location, interval, and factor provenance are available.",
+      "fallback": "Carbon factor and total remain UNKNOWN; report interval closure as qualified metadata.",
+      "evidence": "The use case names external carbon-factor sources but supplies no values or standardized device YANG representation.",
+      "todo": "Define validated external factor inputs and a reporting calculation before producing carbon totals.",
+      "validation_criterion": "No carbon numeric value appears in the operational YANG instance without a source factor."
+    },
+    {
+      "id": "UC2.4/PER_VNF_ATTRIBUTION",
+      "uc": "UC 2.4",
+      "events": ["U4-0", "U4-4"],
+      "source": "draft-ietf-green-use-cases-02, UC 2.4",
+      "missing": "A standardized relationship between host-meter intervals, virtual-function allocation, and per-VNF energy attribution.",
+      "expected_behavior": "Report per-function energy only with an explicit attribution method, allocation evidence, and uncertainty.",
+      "fallback": "Expose measured host-level power/energy; per-VNF energy remains UNKNOWN and is not serialized to YANG.",
+      "evidence": "The use case requires hardware/software-layer metering but leaves GREEN requirements and attribution details TODO.",
+      "todo": "Adopt a justified attribution model and schema before exposing per-VNF operational measurements.",
+      "validation_criterion": "Workload/allocation events execute while no fabricated VNF Energy Object or measurement is emitted."
+    },
+    {
+      "id": "UC2.17/AGENT_REASONING",
+      "uc": "UC 2.17",
+      "events": ["U17-3"],
+      "source": "draft-ietf-green-use-cases-02, UC 2.17",
+      "missing": "A standardized device-side representation for agent reasoning, intent provenance, and decision confidence.",
+      "expected_behavior": "Keep candidate reasoning and hypothetical intent outside device operational YANG data.",
+      "fallback": "Record a clearly labeled simulated intent in scenario metadata; no AI engine, controller, or configuration write is implemented.",
+      "evidence": "The use case describes AI-agent behavior but does not define a GREEN YANG reasoning or intent data model.",
+      "todo": "Implement only after an agreed external decision contract and safety policy exist.",
+      "validation_criterion": "The intent event is runnable and read-only NETCONF contains no agent-intent leaf or write operation."
+    },
+    {
+      "id": "UC2.17/LEARNING_FEEDBACK",
+      "uc": "UC 2.17",
+      "events": ["U17-6"],
+      "source": "draft-ietf-green-use-cases-02, UC 2.17",
+      "missing": "A defined learning-feedback signal and retention/quality semantics.",
+      "expected_behavior": "Evaluate measured outcomes without claiming trained or continuously learning behavior.",
+      "fallback": "Mark learning feedback NOT_MODELED in scenario metadata.",
+      "evidence": "The use case mentions learning from operations but provides no device-side feedback schema or algorithm.",
+      "todo": "Specify measurable feedback and provenance before implementing a learning loop.",
+      "validation_criterion": "The feedback-gap event completes non-fatally and emits no unsupported YANG data."
+    },
+    {
+      "id": "UC2.17/ENERGY_OUTCOME_INTERVAL",
+      "uc": "UC 2.17",
+      "events": ["U17-5"],
+      "source": "draft-ietf-green-use-cases-02, UC 2.17",
+      "missing": "A justified interval-energy measurement and time window for evaluating the action outcome.",
+      "expected_behavior": "Compare compatible interval or cumulative Energy samples rather than infer savings from one Power sample.",
+      "fallback": "Expose instantaneous Power observations; interval Energy and energy saving remain UNKNOWN.",
+      "evidence": "U17-5 has instantaneous Power only; no Energy comparison interval is defined.",
+      "todo": "Define the measurement interval, energy baseline, and counter-reset handling for outcome evaluation.",
+      "validation_criterion": "U17-5 runs without an energy-total claim unless interval-compatible samples exist."
+    },
+    {
+      "id": "UC2.9/HIBERNATING_STATE_MAPPING",
+      "uc": "UC 2.9",
+      "events": ["U9-2"],
+      "source": "draft-ietf-green-use-cases-02, UC 2.9",
+      "missing": "A target GREEN power-state identity for the WLAN hibernation mode.",
+      "expected_behavior": "Expose only a power-state identity defined by the installed YANG module.",
+      "fallback": "Keep the hibernating mode in scenario metadata and omit power-state/oper.",
+      "evidence": "The target YANG power-state identities include on, off, and sleep, but not hibernating.",
+      "todo": "Map hibernation only after a standardized identity or agreed equivalent is available.",
+      "validation_criterion": "U9-2 runs, preserves the scenario mode, and emits no invented power-state identity."
+    },
+    {
+      "id": "YANG05/SOURCE_COMPONENT_ID_UUID_DISCREPANCY",
+      "uc": "cross-cutting",
+      "events": [],
+      "source": "draft-ietf-green-power-and-energy-yang-05, source-component-id definition and Section 7.1",
+      "missing": "Agreement between the source-component-id leafref and nearby UUID prose.",
+      "expected_behavior": "Use the actual leafref path while preserving hardware UUID as a separate identity.",
+      "fallback": "Map source-component-id to RFC 8348 component name; do not substitute UUID or alter upstream YANG.",
+      "evidence": "The YANG leafref targets /hw:hardware/hw:component/hw:name; nearby prose says uuid.",
+      "todo": "Submit draft feedback to reconcile the prose and schema in a future revision.",
+      "validation_criterion": "yanglint resolves source-component-id against component/name and tests retain UUID separately."
+    }
+  ]
+}

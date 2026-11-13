@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "target": "draft-ietf-green-power-and-energy-yang-05",
+  "target_date": "2026-11-02",
+  "modules": [
+    {
+      "name": "iana-hardware",
+      "revision": "2018-03-13",
+      "file": "../yang/iana-hardware@2018-03-13.yang",
+      "imports": [],
+      "source_url": "https://www.iana.org/assignments/yang-parameters/iana-hardware@2018-03-13.yang",
+      "sha256": "58F3F0F191FAB251C9D90B0AFDEFCCD12B15E23E6694F66CFED8965C513EF1AC",
+      "allrun53_repository_status": "not-installed"
+    },
+    {
+      "name": "iana-power-and-energy",
+      "revision": "2026-11-01",
+      "file": "../yang/iana-power-and-energy@2026-11-01.yang",
+      "imports": [],
+      "source_url": "https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-05",
+      "sha256": "267CE204F54786F4253FE9BE48C43EB730F4D507A635757E4667BC99EDF54A4F",
+      "allrun53_repository_status": "not-installed"
+    },
+    {
+      "name": "ietf-hardware",
+      "revision": "2018-03-13",
+      "file": "../yang/ietf-hardware@2018-03-13.yang",
+      "imports": ["ietf-inet-types", "ietf-yang-types", "iana-hardware"],
+      "source_url": "https://www.rfc-editor.org/rfc/rfc8348.html",
+      "sha256": "E14AAD930E6C6466F5D1ECC12C5C4818E9553A357A9598B6D67F6BED587A6883",
+      "allrun53_repository_status": "not-installed"
+    },
+    {
+      "name": "ietf-inet-types",
+      "revision": "2025-12-22",
+      "file": "../yang/ietf-inet-types@2025-12-22.yang",
+      "imports": [],
+      "source_url": "https://www.rfc-editor.org/rfc/rfc6991.html",
+      "sha256": "2FB39C45CD28D95F60838E5F74AC509D780D18F3C5BF78DB251049A4D022E266",
+      "allrun53_repository_status": "not-installed"
+    },
+    {
+      "name": "ietf-power-and-energy",
+      "revision": "2026-11-01",
+      "file": "../yang/ietf-power-and-energy@2026-11-01.yang",
+      "imports": ["ietf-hardware", "iana-power-and-energy"],
+      "source_url": "https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-05",
+      "sha256": "463BD1250B52965EDB6B58813FF37FBE62085BF6D31BD55C09A2295ABADFD249",
+      "allrun53_repository_status": "not-installed"
+    },
+    {
+      "name": "ietf-yang-types",
+      "revision": "2025-12-22",
+      "file": "../yang/ietf-yang-types@2025-12-22.yang",
+      "imports": [],
+      "source_url": "https://www.rfc-editor.org/rfc/rfc6991.html",
+      "sha256": "5E4FF4C837F303050FA46369987F11EB909C24DAE2D4EC338342A7AA596F7B2B",
+      "allrun53_repository_status": "not-installed"
+    }
+  ]
+}
